@@ -95,8 +95,108 @@ The following parameters (scoring critera) are used:
 
 #### 1. Confidence Rating
 
+Confidence Rating gives a measure of the company's future prospects. The LLM is instructed to reward robust future planning, growth and and confidence in the company future. 
+This rating is useful to future investors and current stakeholders who are most interested in the profit trajectory.
 
+<p align="center">
+    <img src="outputs/conf_rating.png" alt="Confidence Rating for Apple" width="550"/>
+</p>
 
+#### 2. Environment Rating
+
+Environment Rating gives a measure of the company's effects on the environment. The LLM is instructed to reward feasible planning and commitment to the environment. Companies that don't mention sustainability are penalized. 
+This rating is useful to policy makers and Environmentalists who are most interested in the company's outlook towards the environment.
+
+<p align="center">
+    <img src="outputs/env_rating.png" alt="Environment Rating for Apple" width="550"/>
+</p>
+
+#### 3. Innovation Rating
+
+Innovation Rating gives a measure of the company's commitment towards advancements, specially technological. The LLM is instructed to reward plans to optimize its operations using the latest innovations. The year is also included in the prompt to assist the LLM in making the decision. R&D labs and work mentioned is also rewarded. Companies that make no mention of any future improvements are penalized.
+This rating is useful to investors and stakeholders from an operational standpoint, if the company is optimizing itself.
+
+<p align="center">
+    <img src="outputs/inno_rating.png" alt="Innovation Rating for Apple" width="550"/>
+</p>
+
+#### 4. People Rating
+
+Innovation Rating gives a measure of the company's relationship with its employees. The LLM is instructed to reward companies which mention their talent, efforts to retain them and care for their welfare. The year is also included in the prompt to assist the LLM in making the decision. Companies that make no mention of employees are penalized.
+This rating is useful to human rights activists and unions.
+
+<p align="center">
+    <img src="outputs/people_rating.png" alt="People Rating for Apple" width="550"/>
+</p>
+
+### Plots of all tickers:
+
+<p align="center">
+    <img src="outputs/ratings.png" alt="People Rating for Apple" width="750"/>
+</p>
+
+##### Plots depicting metadata of each rating:
+
+<p align="center">
+  <img src="outputs/heatmap.png" alt="Image 1" width="450" style="display:inline-block; margin-right: 20px;"/>
+  <img src="outputs/violin_plot.png" alt="Image 2" width="475" style="display:inline-block;"/>
+</p>
+
+### Year-On-Year ratings of the three tickers:
+Helpful to see the company priorities and their change every year.
+
+<p align="center">
+  <img src="outputs/AAPL_Stack.png" alt="Image 1" width="500" style="display:inline-block; margin-right: 20px;"/>
+  <img src="outputs/IBM_stack.png" alt="Image 2" width="500" style="display:inline-block;"/>
+</p>
+<p align="center">
+    <img src="outputs/RGLD_stack.png" alt="Ratings" width="500"/>
+</p>
+
+[Citation](https://arxiv.org/abs/2307.13106)
+
+### Relative Scoring Analysis:
+We input the text of all the tickers for one particular section and ask the LLM to judge the best one. The LLM thus has a more diverse set of data to assist in its decision making. We record the "Winner" for that particular section.
+
+#### Prompt Used For Comparitive Analysis
+
+```
+response = co.chat(
+                message=f"""
+                You are an AI grader that given an output and a criterion, grades the completion based on
+                the prompt and criterion. Below "Excerpt A", "Excerpt B" and "Excerpt B", 
+                you must compare both excerpts and output which excerpt is better.
+
+                ## Excerpt A
+                {excerpt_1}
+
+                ## Excerpt B
+                {excerpt_2}
+
+                ## Excerpt C
+                {excerpt_3}
+
+                ## Criterion
+                Do not focus on the grammer, instead focus on the overall future plan and robust explainability.
+                [Answer with either "A" or "B" or "C".
+                A. If Excerpt A is the best, detailed, transparent with robust financials.
+                B. If Excerpt B is the best, detailed, transparent with robust financials.
+                C. If Excerpt C is the best, detailed, transparent with robust financials.
+                .]
+
+                """
+```
+
+<p align="center">
+  <img src="outputs/comparision.png" alt="Image 1" width="500" style="display:inline-block; margin-right: 20px;"/>
+  <img src="outputs/comparision_YOY.png" alt="Image 2" width="500" style="display:inline-block;"/>
+</p>
+<p align="center">
+    <img src="outputs/section_comparision.png" alt="Ratings" width="500"/>
+</p>
 
 # Web App
-Web Application is available at
+Web Application is available at this [link](https://8501-01hwwe6a9rterwq0zjh91pnspz.cloudspaces.litng.ai/)
+Please follow the instructions mentioned. Loading might initially take some time.
+
+![image](https://github.com/sulphatet/10-K-Filings-Rating-System/assets/73064995/e0111d5e-5c06-45bc-9205-490597860841)
