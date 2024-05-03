@@ -1,0 +1,5 @@
+,ticker,year,conf_rating,conf_rating_strict,env_rating,env_rating_strict,inno_rating,inno_rating_strict,people_rating,people_rating_strict
+0,MSFT,2023.csv,1.0,1.0,1.0,1.0,1.0,1.0,2.0,2.0
+1,MSFT,2020.csv,1.0,1.0,2.0,2.0,1.0,2.0,2.0,2.0
+2,MSFT,2021.csv,1.0,2.0,1.0,1.0,1.0,1.0,2.0,2.0
+3,MSFT,2022.csv,1.0,2.0,2.0,2.0,1.0,1.0,2.0,2.0
