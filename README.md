@@ -7,7 +7,7 @@ Run `streamlit run main.py` to create an interactive window.
 
 # Methodology
 ## Pulling the 10 - K Filings Data and cleaning it
-The function `get_10k_filings_by_ticker_with_years` in `data_engineering.py` pulls the raw data as a string given the ticker.
+The function `get_10k_filings_by_ticker_with_years` in `data_engineering.py` pulls the raw data as a string given the ticker. This uses the SEC-Edgar downloader.
 We use [Unstructured-IO](https://github.com/Unstructured-IO/unstructured) and [pipeline-sec-filings](https://github.com/Unstructured-IO/pipeline-sec-filings) extensively for accessing the 10-K Filings and cleaning them.
 
 ### Narrative Texts
@@ -197,6 +197,8 @@ response = co.chat(
 
 # Web App
 Web Application is available at this [link](https://8501-01hwwe6a9rterwq0zjh91pnspz.cloudspaces.litng.ai/)
-Please follow the instructions mentioned. Loading might initially take some time.
+Please follow the instructions mentioned. Loading might initially take some time. 
+
+This application was built using Streamlit, and is hosted on a lightning.ai studio. Streamlit as a library is designed for presenting dashboards, integrating it with the storage and compute of a lighting.ai studio, we are able to effectively create a pipeline and store its results within the cloud. 
 
 ![image](https://github.com/sulphatet/10-K-Filings-Rating-System/assets/73064995/e0111d5e-5c06-45bc-9205-490597860841)
